@@ -1,8 +1,8 @@
-create database dotinstall_sns_php;
+create database foodCourt_php;
 
-grant all on dotinstall_sns_php.* to dbuser@localhost identified by 'g8mvuudw';
+grant all on foodCourt_php.* to fcuser@localhost identified by 'g8mvuudw';
 
-use dotinstall_sns_php;
+use foodCourt_php;
 
 create table users (
     id int not null auto_increment primary key,
@@ -13,3 +13,12 @@ create table users (
 );
 
 desc users;
+
+create table menu (
+    id int not null auto_increment primary key,
+    name varchar(255) not null,
+    price int not null,
+    cal int,
+    created datetime,
+    modified datetime
+);

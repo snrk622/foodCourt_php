@@ -29,15 +29,10 @@ $app->run();
             <?= h($app->me()->email); ?><input type="submit" value="Log out">
             <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
         </form>
-        <h1>Users <span class="fs12">(<?= count($app->getValues()->users); ?>)</span></h1>
-        <ul>
-            <?php foreach ($app->getValues()->users as $user) : ?>
-            <li><?= h($user->email); ?></li>
-            <?php endforeach; ?>
-            
-        </ul>
+        
         
     </div>
+    <a href="menu_list.php">メニュー一覧</a>
 
 </body>
 
