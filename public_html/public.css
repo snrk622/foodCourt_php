@@ -1,0 +1,52 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    font-family: Verdana, sans-serif;
+    background: #eee;
+}
+
+.title {
+    display: inline-block;
+    width: 100%;
+    height: 80px;
+    color: white;
+    background: #008b8b;
+    margin: 0;
+    line-height: 80px;
+}
+
+ul {
+    display: flex;
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    justify-content: space-around;
+    margin: 10px 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    border: #00b3b3 3px solid;
+    line-height: 50px;
+    margin: 0;
+    font-weight: bold;
+    background: white;
+}
+
+li a{
+    text-decoration: none;
+    color: #00b3b3;
+}
+
+.active {
+    background: #00b3b3;
+    color: white;
+}

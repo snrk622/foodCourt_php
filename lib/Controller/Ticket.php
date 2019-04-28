@@ -6,16 +6,19 @@ namespace MyApp\Controller;
 
 class Ticket extends \MyApp\Controller {
     
-    public function run() {
-//        if(!$this->isLoggedIn()) {
-//            //login画面へ遷移
-//            header('Location: ' . SITE_URL . '/login.php');
-//            exit;
-//        }
-        
-        //get users info
+    
+    
+    public function call() {
         $userModel = new \MyApp\Model\MenuModel();
-        $this->setValues('menu', $userModel->findId($_SESSION['id']));
-    }    
+        
+        $this->setValues('menus', $userModel->findId($_SESSION['user_id']));
+    }  
+    
+    public function register() {
+        $userModel = new \MyApp\Model\MenuModel();
+        $userModel->registerOrder($_SESSION['menu_id'], $_SESSION['user_id']);
+        header('Location: ' . $_SERVER['PHP_SELF']);
+        
+    }
 }
 

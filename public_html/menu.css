@@ -8,6 +8,33 @@ body {
     width: 50%;
     margin: 50px auto;
     border: 1px solid #c0c0c0;
+    background: white;
+}
+
+.ticket-top {
+    text-align: left;
+    width: 300px;
+    margin: 50px auto 0;
+    padding: 10px 20px 50px;
+    border: 1px solid #c0c0c0;
+    border-bottom: 5px dotted black;
+    background: white;
+}
+
+.ticket-bottom {
+    text-align: left;
+    width: 300px;
+    margin: auto;
+    padding: 20px 20px;
+    border: 1px solid #c0c0c0;
+    border-top: none;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon img{
+    height: 50px;
 }
 
 .img {
@@ -25,4 +52,70 @@ input[type="button"] {
     margin: 30px 0;
     padding: 7px;
     border-radius: 5px;
+}
+
+.univ {
+    margin: 0;
+}
+
+.center {
+    text-align: center;
+}
+
+.margin0 {
+    margin: 0;
+}
+
+.bought {
+    display: flex;
+    height: 16px;
+    line-height: 16px;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.num {
+    font-weight: bold;
+    font-size: 50px;
+    height: 68px;
+    line-height: 68px;
+}
+
+.status {
+    color: white;
+    font-size: 12px;
+    width: 100%;
+    height: 20px;
+    float: right;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.wait {
+    background: #e95464;
+}
+
+.go {
+    background: #00a497;
+}
+
+.eat {
+    background: #606060;
+}
+
+.fs12{
+    font-size: 12px;
+    height: 12px;
+}
+
+.left {
+    height: 80px;
+    box-sizing: border-box;
+}
+
+.right {
+    height: 80px;
+    box-sizing: border-box;
+    text-align: right;
 }

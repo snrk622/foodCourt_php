@@ -1,0 +1,8 @@
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.order_wait, .order_go {
+    width: 40%;
+}
