@@ -5,4 +5,15 @@
 
 .order_wait, .order_go {
     width: 40%;
+    
+}
+
+.status {
+    display: inline-block;
+    width: 100%;
+    background: red;
+}
+
+.menu {
+    width: 100%;
 }

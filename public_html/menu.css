@@ -4,9 +4,19 @@ body {
     text-align: center;
 }
 
+.wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+/*    flex-direction: row;*/
+    justify-content: space-around;
+}
+
 .menu {
-    width: 50%;
-    margin: 50px auto;
+/*    display: inline-block;*/
+    width: 45%;
+    margin: 50px 0;
     border: 1px solid #c0c0c0;
     background: white;
 }

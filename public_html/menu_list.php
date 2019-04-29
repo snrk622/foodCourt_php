@@ -4,32 +4,20 @@ require_once(__DIR__ . '/../config/config.php');
 
 $app = new \MyApp\Controller\Menu_list();
 
-if($_SERVER["REQUEST_METHOD"] === "POST") {
-//    if(isset($_POST['genre_id'])) {
-//        $_SESSION['genre'] = $_POST['genre_id'];
-//        if(isset($_POST['search'])) {
-            $_SESSION['search'] = $_POST['search'];
-//        }
-        $app->run();
-//    }elseif(isset($_POST['search'])) {
-//        $_SESSION['search'] = $_POST['search'];
-//        if(isset($_SESSION['genre'])) {
-//            $app->post();
-//        }else{
-//            $app->run();
-//        }
-//    }
+
+//$_SESSION['cart'] = [];
+//if($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+    
+    
 //}else{
-//    if(isset($_SESSION['genre'])) {
-//        $app->post();
-//    }else{
-//        $app->run();
-//    }
-//    
-//    
-}else{
-    $app->run();
-}
+    
+//}
+
+//var_dump($app->getValues()->carts);
+//exit;
+$app->run();
+
 
 
 
@@ -49,13 +37,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     
     <header>
-        <h1 class="title">岩手県立大学　食券販売システム</h1>
-        <ul>
-            <li class="active"><a class="active" href="#">メニュー</a></li>
-            <li><a href="ticket.php">整理券</a></li>
-            <li><a href="">ホーム</a></li>
-        </ul>
+        <h1 class="title">PreTicket.</h1>
     </header>
+    
+    <form action="logout.php" method="post" id="logout">
+        <?= h($app->me()->email); ?><input type="submit" value="Log out">
+        <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
+    </form>
+<!--
     <form action="" method="post">
        <?php if(isset($_SESSION['search'])) {?>
         <input type="search" name="search" value="<?= $_SESSION['search'] ?>">
@@ -68,6 +57,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         <input type="hidden" name="search" value="">
         <input type="submit" value="リセット">
     </form>
+-->
 <!--
     <form action="" method="post">
                 <input type="hidden" name="genre_id" value="">
@@ -106,24 +96,33 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="button" value="buy">
         </div>
 -->
+   
+   
+    <div class="wrapper">
     <?php foreach ($app->getValues()->menus as $menu) : ?>
-    <form action="ticket.php" method="post">
-        <div class="menu">
+    <form action="ticket.php" method="post" class="menu">
             <input type="hidden" name="menu_id" value="<?= h($menu->id) ?>">
+<!--            <input type="hidden" name="cart" value="<?= h($menu->id) ?>">-->
             <h2><?= h($menu->name); ?></h2>
             <!--            <div class="img"></div>-->
             <img src="<?= 'images/' . h($menu->img_path); ?>" class="img">
             <p><?= h($menu->price); ?>円</p>
             <p><?= h($menu->cal); ?>kcal</p>
             <input type="submit" value="buy">
-        </div>
     </form>
     <?php endforeach; ?>
-    <form action="logout.php" method="post" id="logout">
-        <?= h($app->me()->email); ?><input type="submit" value="Log out">
-        <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
-    </form>
-
+    </div>
+    
+    <footer>
+        
+        <div class="footer_menu">
+            <a href="menu_list.php" class="menu_item menu_now"><img src="images/menu.svg"></a>
+            <a href="search.php" class="menu_item"><img src="images/search.svg"></a>
+            <a href="ticket.php" class="menu_item menu_ticket"><img src="images/ticket.svg"></a>
+            <a href="" class="menu_item"><img src="images/cart.svg"></a>
+            <a href="info.php" class="menu_item"><img src="images/wallet.svg"></a>
+        </div>
+    </footer>
 
 </body>
 

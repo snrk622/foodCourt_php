@@ -31,9 +31,9 @@ $app->run();
 <body>
     <header>
         <h1 class="title">岩手県立大学　食券販売システム ＜管理者＞</h1>
-        
+
     </header>
-    
+
 
     <!--
         <div class="menu">
@@ -59,43 +59,43 @@ $app->run();
         </div>
 -->
     <div class="wrapper">
-        <div class="order_wait">
-      <h2>Wait...</h2>
-       <?php foreach ($app->getValues()->orders1 as $order) : ?>
-    <form action="" method="post">
-        <div class="menu">
-            <input type="hidden" name="order_id" value="<?= h($order->order_id) ?>">
-            <input type="hidden" name="now_status" value="<?= h($order->status) ?>">
-            <?php var_dump(h($order->order_id)); ?>
-            <h2><?= h($order->name); ?></h2>
-            <p><?= h($order->date); ?></p>
-            <p><?= h($order->email); ?></p>
-            <input type="submit" value="done!">
+        <div class=" order order_wait">
+            <h2>調理中</h2>
+            <?php foreach ($app->getValues()->orders1 as $order) : ?>
+            <form action="" method="post">
+                <div class="menu">
+                    <input type="hidden" name="order_id" value="<?= h($order->order_id) ?>">
+                    <input type="hidden" name="now_status" value="<?= h($order->status) ?>">
+                    <p class="num margin0"><?= sprintf('%03d', h($order->order_id)); ?></p>
+                    <h2><?= h($order->name); ?></h2>
+                    <p><?= h($order->date); ?></p>
+                    <p><?= h($order->email); ?></p>
+                    <input type="submit" value="done!">
+                </div>
+            </form>
+            <?php endforeach; ?>
         </div>
-    </form>
-    <?php endforeach; ?>
-   </div>
-   
-   <div class="order_go">
-      <h2>Go!</h2>
-       <?php foreach ($app->getValues()->orders2 as $order) : ?>
-    <form action="" method="post">
-        <div class="menu">
-            <input type="hidden" name="order_id" value="<?= h($order->order_id) ?>">
-            <input type="hidden" name="now_status" value="<?= h($order->status) ?>">
-            <?php var_dump(h($order->order_id)); ?>
-            <h2><?= h($order->name); ?></h2>
-            <p><?= h($order->date); ?></p>
-            <p><?= h($order->email); ?></p>
-            <input type="submit" value="done!">
+
+        <div class="order order_go">
+            <h2>受け取り待ち</h2>
+            <?php foreach ($app->getValues()->orders2 as $order) : ?>
+            <form action="" method="post">
+                <div class="menu">
+                    <input type="hidden" name="order_id" value="<?= h($order->order_id) ?>">
+                    <input type="hidden" name="now_status" value="<?= h($order->status) ?>">
+                    <p class="num margin0"><?= sprintf('%03d', h($order->order_id)); ?></p>
+                    <h2><?= h($order->name); ?></h2>
+                    <p><?= h($order->date); ?></p>
+                    <p><?= h($order->email); ?></p>
+                    <input type="submit" value="done!">
+                </div>
+            </form>
+            <?php endforeach; ?>
         </div>
-    </form>
-    <?php endforeach; ?>
-   </div>
     </div>
-   
+
     
-    
+
 
 
 </body>

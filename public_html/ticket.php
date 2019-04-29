@@ -32,12 +32,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
     <header>
-        <h1 class="title">岩手県立大学　食券販売システム</h1>
-        <ul>
-            <li><a href="menu_list.php">メニュー</a></li>
-            <li class="active"><a class="active" href="#">整理券</a></li>
-            <li><a href="">ホーム</a></li>
-        </ul>
+        <h1 class="title">PreTicket.</h1>
     </header>
 
     
@@ -74,7 +69,16 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
     </div>
     <?php endforeach; ?>
-    
+    <footer>
+        
+        <div class="footer_menu">
+            <a href="menu_list.php" class="menu_item"><img src="images/menu.svg"></a>
+            <a href="search.php" class="menu_item"><img src="images/search.svg"></a>
+            <a href="ticket.php" class="menu_item menu_ticket  menu_now"><img src="images/ticket.svg"></a>
+            <a href="" class="menu_item"><img src="images/cart.svg"></a>
+            <a href="info.php" class="menu_item"><img src="images/wallet.svg"></a>
+        </div>
+    </footer>
     
 
 

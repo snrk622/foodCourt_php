@@ -5,15 +5,13 @@ namespace MyApp\Model;
 class MenuModel extends \MyApp\Model {
     
     
-    public function findAll($search) {
+    public function findAll() {
         if(isset($_SESSION['genre'])) {
             
         }
-        $stmt = $this->db->prepare("select 
-        * from menu where name like :search;");
-        $stmt->execute([
-           ':search' =>  '%' . $search . '%'
-        ]);
+        $stmt = $this->db->query("select 
+        * from menu;");
+        
         $stmt->setFetchMode(\PDO::FETCH_CLASS, 'stdClass');
         return $stmt->fetchAll();
     }
@@ -60,7 +58,7 @@ class MenuModel extends \MyApp\Model {
     }
     
     public function findId($user_id) {
-        $stmt = $this->db->prepare("select orders.id as order_id, date, menu_id, user_id, status, name, price, cal, img_path, genre, email from orders join menu on (orders.menu_id = menu.id) join users on (orders.user_id = users.id) where user_id = :id order by status;");
+        $stmt = $this->db->prepare("select orders.id as order_id, date, menu_id, user_id, status, name, price, cal, img_path, genre, email from orders join menu on (orders.menu_id = menu.id) join users on (orders.user_id = users.id) where user_id = :id order by status, order_id;");
         $stmt->execute([
             ':id' => $user_id
         ]);
@@ -92,5 +90,11 @@ class MenuModel extends \MyApp\Model {
         ]);
         
     }
+    
+    
+    
+    
+    
+    
     
 }
