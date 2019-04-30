@@ -2,7 +2,7 @@ body {
     font-size: 16px;
     font-family: Verdana, sans-serif;
     text-align: center;
-    
+    color: #292929;
 }
 
 .wrapper {
@@ -73,7 +73,14 @@ body {
     transform: rotateY(180deg);
     background: white;
     backface-visibility: hidden;
-    font-size: 2vw;
+    font-size: 1vw;
+/*    transform: scale(0.5);*/
+}
+
+.card_back img {
+    width: 30%;
+    height: 50px;
+    margin: 10px auto;
 }
 
 .card:active {
@@ -122,4 +129,41 @@ body {
 .card_back h1 {
     font-size: 3vw;
     text-align: center;
+}
+
+.card_info {
+    background: white;
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
+
+.card_info:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 20%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-bottom: 15px solid white;
+}
+
+.balance {
+    border-bottom: 1px solid #3b3f74;
+    width: 95%;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.balance p{
+    font-size: 40px;
+    margin: 0;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.charge_form {
+    margin: 10px;
 }

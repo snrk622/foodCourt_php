@@ -35,6 +35,7 @@ class Login extends \MyApp\Controller {
                 'email' => $_POST['email'],
                 'password' => $_POST['password']
              ]);
+            
         }catch(\MyApp\Exception\UnmatchEmailOrPassword $e) {
             $this->setErrors('login', $e->getMessage());
             return;
@@ -42,7 +43,10 @@ class Login extends \MyApp\Controller {
             
             //ログイン処理
             session_regenerate_id(true);
-            $_SESSION[me] = $user;
+            $_SESSION['me'] = $user;
+            
+            
+            
             
             //redirect to home
             header('Location: ' . SITE_URL);

@@ -7,8 +7,9 @@ require_once(__DIR__ . '/../config/config.php');
 $_SESSION['user_id'] = $app->me()->id;
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
-    $menu_id = $_POST['menu_id'];
-    $_SESSION['menu_id'] = $menu_id;
+    $_SESSION['menu_id'] = $_POST['menu_id'];
+    $_SESSION['menu_price'] = $_POST['menu_price'];
+    $_SESSION['menu_popular'] = $_POST['menu_popular'];
     $app->register();
 }
 
@@ -25,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="ticket.css">
     <link rel="stylesheet" href="public.css">
     <title>整理券</title>
 </head>
@@ -40,12 +41,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     
     <div class="ticket-top">
         <p class="center margin0">岩手県立大学生活協同組合組合</p>
-        <h1 class="univ">Univ.</h1>
-        <p class="margin0">co-op</p>
-        <p class="center">領収書</p>
-        <p><?= h($menu->date); ?></p>
+        <img class="receipt_logo" src="images/receipt_logo.png">
+        <p class="fs12">領収書</p>
+        <p class="margin0"><?= h($menu->date); ?></p>
         <div class="bought">
-            <p class="margin0"><?= h($menu->name); ?></p>
+            <p class="margin0"><?= h(sprintf('%02d', $menu->menu_id)); ?> <?= h($menu->name); ?></p>
             <p class="margin0">¥<?= h($menu->price); ?></p>
         </div>
     </div>

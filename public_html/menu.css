@@ -7,50 +7,73 @@ body {
 .wrapper {
     width: 100%;
     height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+/*    padding: 5%;*/
+    /*
     display: flex;
     flex-wrap: wrap;
-/*    flex-direction: row;*/
     justify-content: space-around;
+*/
+}
+
+.tag {
+    display: flex;
+    background: #5383c3;
+    width: 100px;
+    height: 30px;
+    color: white;
+    padding: 2px;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: 5%;
+}
+
+.tag img {
+    height: 15px;
+    margin-top: 7px;
+}
+
+.tag h2 {
+    margin: 0 5px;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.ranking {
+    background: #e95464;
+}
+
+.rank_icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.genre {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-right: 5%;
+    margin: 10px 0 30px;
+    position: relative;
 }
 
 .menu {
-/*    display: inline-block;*/
-    width: 45%;
-    margin: 50px 0;
-    border: 1px solid #c0c0c0;
+    display: inline-block;
+    width: 90%;
+    margin: 0 0 0 5%;
     background: white;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.ticket-top {
-    text-align: left;
-    width: 300px;
-    margin: 50px auto 0;
-    padding: 10px 20px 50px;
-    border: 1px solid #c0c0c0;
-    border-bottom: 5px dotted black;
-    background: white;
-}
 
-.ticket-bottom {
-    text-align: left;
-    width: 300px;
-    margin: auto;
-    padding: 20px 20px;
-    border: 1px solid #c0c0c0;
-    border-top: none;
-    background: white;
-    display: flex;
-    justify-content: space-between;
-}
-
-.icon img{
-    height: 50px;
-}
 
 .img {
     width: 100%;
-    margin: 10px auto;
-    background: black;
+    margin: 0 auto;
 }
 
 input[type="button"] {
@@ -64,68 +87,35 @@ input[type="button"] {
     border-radius: 5px;
 }
 
-.univ {
-    margin: 0;
+.menu_name {
+    text-align: left;
+    font-size: 10px;
+    margin: 5px 0 5px 10%;
 }
+
+.menu_price {
+    text-align: left;
+    font-size: 16px;
+    margin: 5px 0 5px 10%;
+}
+
+
 
 .center {
     text-align: center;
 }
 
-.margin0 {
-    margin: 0;
+.red {
+    color: #e95464;
 }
 
-.bought {
-    display: flex;
-    height: 16px;
-    line-height: 16px;
-    margin: 0;
-    justify-content: space-between;
+.green {
+    color: #38b48b;
 }
 
-.num {
-    font-weight: bold;
-    font-size: 50px;
-    height: 68px;
-    line-height: 68px;
+.rank_img {
+    position: relative;
 }
 
-.status {
-    color: white;
-    font-size: 12px;
-    width: 100%;
-    height: 20px;
-    float: right;
-    border-radius: 10px;
-    text-align: center;
-    line-height: 20px;
-}
 
-.wait {
-    background: #e95464;
-}
 
-.go {
-    background: #00a497;
-}
-
-.eat {
-    background: #606060;
-}
-
-.fs12{
-    font-size: 12px;
-    height: 12px;
-}
-
-.left {
-    height: 80px;
-    box-sizing: border-box;
-}
-
-.right {
-    height: 80px;
-    box-sizing: border-box;
-    text-align: right;
-}

@@ -5,13 +5,18 @@ namespace MyApp\Model;
 class MenuModel extends \MyApp\Model {
     
     
-    public function findAll() {
-        if(isset($_SESSION['genre'])) {
-            
-        }
-        $stmt = $this->db->query("select 
-        * from menu;");
-        
+    public function findAll($genre) {
+        $stmt = $this->db->prepare("select 
+        * from menu where genre = :genre;");
+        $stmt->execute([
+           ':genre' =>  $genre
+        ]);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'stdClass');
+        return $stmt->fetchAll();
+    }
+    
+    public function ranking() {
+        $stmt = $this->db->query("select * from menu where popular > 0 order by popular desc limit 3;");
         $stmt->setFetchMode(\PDO::FETCH_CLASS, 'stdClass');
         return $stmt->fetchAll();
     }
@@ -43,16 +48,26 @@ class MenuModel extends \MyApp\Model {
         return $stmt->fetchAll();
     }
     
-    public function registerOrder($menu_id, $user_id) {
+    public function registerOrder($menu_id, $user_id, $card_id, $menu_price, $balance, $popular) {
         $date = new \DateTime('now');
-        $stmt = $this->db->prepare("insert into orders (menu_id, user_id, date) values (:menu_id, :user_id, :date);");
-        $res = $stmt->execute([
+        $stmt1 = $this->db->prepare("insert into orders (menu_id, user_id, date) values (:menu_id, :user_id, now());");
+        $res1 = $stmt1->execute([
             ':menu_id' => $menu_id,
-            ':user_id' => $user_id,
-            ':date' => $date->format('Y-m-d H:i:s')
+            ':user_id' => $user_id
+        ]);
+        $stmt2 = $this->db->prepare("update card set balance = :balance where id = :card_id;");
+        $res2 = $stmt2->execute([
+            ':card_id' =>  $card_id,
+            ':balance' =>  $balance - $menu_price
         ]);
         
-        if($res === false) {
+        $stmt3 = $this->db->prepare("update menu set popular = :popular where id = :menu_id;");
+        $res3 = $stmt3->execute([
+            ':popular' => $popular + 1,
+            ':menu_id' => $menu_id
+        ]);
+        
+        if($res1 === false || $res2 === false) {
             throw new \MyApp\Exception\DuplicateEmail();
         }
     }

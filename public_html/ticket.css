@@ -1,0 +1,98 @@
+.ticket-top {
+    text-align: left;
+    width: 300px;
+    margin: 50px auto 0;
+    padding: 50px 20px 30px;
+    border-bottom: 5px dotted #3b3f74;
+    background: white;
+    color: #292929;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+}
+
+.ticket-bottom {
+    text-align: left;
+    width: 300px;
+    margin: auto;
+    padding: 20px 20px;
+    border: 1px solid #c0c0c0;
+    border-top: none;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    color: #292929;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.icon img{
+    height: 50px;
+}
+
+.margin0 {
+    margin: 0;
+}
+
+.bought {
+    display: flex;
+    height: 16px;
+    line-height: 16px;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+
+.num {
+    font-weight: bold;
+    font-size: 50px;
+    height: 68px;
+    line-height: 68px;
+    color: #292929;
+}
+
+.status {
+    color: white;
+    font-size: 12px;
+    width: 100%;
+    height: 20px;
+    float: right;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.wait {
+    background: #e95464;
+}
+
+.go {
+    background: #00a497;
+}
+
+.eat {
+    background: #606060;
+}
+
+.fs12{
+    font-size: 12px;
+    height: 12px;
+}
+
+.left {
+    height: 80px;
+    box-sizing: border-box;
+}
+
+.right {
+    height: 80px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.receipt_logo {
+    width: 50%;
+}  
+
+.center {
+    text-align: center;
+}

@@ -6,6 +6,20 @@ $app = new \MyApp\Controller\Info();
 $app->run();
 
 
+
+if($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+    $_SESSION['balance'] = $app->getValues()->card->balance;
+    $_SESSION['charge'] = $_POST['charge'];
+    
+    $app->charge();
+}
+
+
+    
+    
+    
+
 ?>
 
 
@@ -15,7 +29,7 @@ $app->run();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-<!--    <link rel="stylesheet" href="menu.css">-->
+    <!--    <link rel="stylesheet" href="menu.css">-->
     <link rel="stylesheet" href="info.css">
     <link rel="stylesheet" href="public.css">
     <title>メニュー一覧</title>
@@ -55,24 +69,31 @@ $app->run();
             </div>
             <div class="card_back">
                 <h1>組合員証</h1>
-               <div class="notice">
-                   <p class="margin0">●本証は生協利用の際、提示を必要とされている場合は、必ず提示してください。提示がない場合は、組合員証提示割引を受けられないことがあります。</p>
-                <p class="margin0">●本証は他人に貸与したり、または譲渡したりすることはできない。</p>
-                <p class="margin0">●本証を紛失した時は届け出て再交付を受け、定められた手数料を納付してください。</p>
-                <p class="margin0">●住所・所属・休学その他変更が生じた場合は必ず届け出てください。</p>
-                <p class="margin0">●卒業・退職等により組合員の資格を喪失した時は、直ちに本証を返納してください。</p>
-                <p class="margin0">●自由意志で脱退する時は、90日前に組合に届けを出し、事業年度の終わりに脱退することができます。</p>
-               </div>
-                
+                <img src="images/barcode.png">
+
             </div>
         </div>
-        
+
 
     </div>
-    
-    
+    <div class="card_info">
+        <div class="balance">
+            <p>¥<?= h($app->getValues()->card->balance); ?></p>
+        </div>
+        <form action="" method="post" class="charge_form">
+            <input type="text" name="charge" placeholder="金額">
+            <input type="submit" value="チャージ">
+        </form>
+    </div>
+
+
+    <form action="logout.php" method="post" id="logout">
+        <input type="submit" value="Log out">
+        <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
+    </form>
+
+
     <footer>
-        
         <div class="footer_menu">
             <a href="menu_list.php" class="menu_item"><img src="images/menu.svg"></a>
             <a href="search.php" class="menu_item"><img src="images/search.svg"></a>

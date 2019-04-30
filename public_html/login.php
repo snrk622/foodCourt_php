@@ -8,6 +8,8 @@ $app = new MyApp\Controller\Login();
 
 $app->run();
 
+
+
 //echo "login screen";
 //exit;
 
@@ -24,7 +26,7 @@ $app->run();
 
 <body>
 <div id="container">
-    <form action="" method="post" id="login">
+    <form action="" method="post" id="login" class="log">
         <p>
             <input type="text" name="email" placeholder="email" value="<?= isset($app->getValues()->email) ? h($app->getValues()->email) : ''; ?>">
         </p>
@@ -33,7 +35,7 @@ $app->run();
         </p>
         <p class="err"><?= h($app->getErrors('login')); ?></p>
         <div class="btn" onclick="document.getElementById('login').submit();">Log In</div>
-        <p class="ps12"><a href="/signup.php">Sign Up</a></p>
+        <p class="fs12"><a href="/signup.php">Sign Up</a></p>
         <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
     </form>
 </div>
